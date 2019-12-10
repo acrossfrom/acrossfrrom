@@ -23,4 +23,11 @@ class PatrolController {
         return list;
     }
 
+    @GetMapping(value = "delPatrol.do")
+    public @ResponseBody
+    boolean delPatrol(@RequestBody Integer taskCode) {
+        boolean bool = patrolService.delPatrolTask(taskCode);
+        System.out.println(bool);
+        return bool;
+    }
 }

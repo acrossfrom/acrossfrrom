@@ -14,4 +14,9 @@ public interface PatrolMapper {
      * 查看所有的巡检执行任务
      */
     public List<Inspectiontask> listPatrolTask();
+
+    /**
+     * 取消任务
+     */
+    public boolean delPatrolTask(Integer inspectionId);
 }

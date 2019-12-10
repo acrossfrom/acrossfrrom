@@ -25,7 +25,12 @@
             <result property="configValueName" column="config_value_name"></result>
         </association>
     </resultMap>
+    <!--查看所有完成的任务-->
     <select id="listPatrolTask" resultMap="PatrolTask">
-               select*from view_listPatrol
+              select*from view_listPatrol where is_cancel='是'
     </select>
+    <!--取消巡检任务-->
+    <delete id="delPatrolTask" parameterType="integer">
+        update view_listPatrol set  is_cancel='否' where inspection_id=#{inspectionId}
+    </delete>
 </mapper>

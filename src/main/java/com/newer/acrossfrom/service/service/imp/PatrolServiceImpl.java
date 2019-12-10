@@ -17,4 +17,9 @@ public class PatrolServiceImpl implements PatrolService {
     public List<Inspectiontask> listPatrolTask() {
         return patrolMapper.listPatrolTask();
     }
+
+    @Override
+    public boolean delPatrolTask(Integer inspectionId) {
+        return patrolMapper.delPatrolTask(inspectionId);
+    }
 }
