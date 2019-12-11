@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newer.acrossfrom.data.mapper.SystemconfigMapper">
+  <resultMap id="BaseResultMap" type="com.newer.acrossfrom.data.bean.Systemconfig">
+    <id column="SYS_ID" jdbcType="DECIMAL" property="sysId" />
+    <result column="CONFIG_CODE" jdbcType="VARCHAR" property="configCode" />
+    <result column="CONFIG_NAME" jdbcType="VARCHAR" property="configName" />
+    <result column="CONFIG_VALUE_ID" jdbcType="DECIMAL" property="configValueId" />
+    <result column="CONFIG_VALUE_NAME" jdbcType="VARCHAR" property="configValueName" />
+    <result column="SYS_IS_START" jdbcType="VARCHAR" property="sysIsStart" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from PS_SYSTEMCONFIG
+    where SYS_ID = #{sysId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.newer.acrossfrom.data.bean.Systemconfig">
+    insert into PS_SYSTEMCONFIG (SYS_ID, CONFIG_CODE, CONFIG_NAME, 
+      CONFIG_VALUE_ID, CONFIG_VALUE_NAME, SYS_IS_START
+      )
+    values (#{sysId,jdbcType=DECIMAL}, #{configCode,jdbcType=VARCHAR}, #{configName,jdbcType=VARCHAR}, 
+      #{configValueId,jdbcType=DECIMAL}, #{configValueName,jdbcType=VARCHAR}, #{sysIsStart,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.newer.acrossfrom.data.bean.Systemconfig">
+    update PS_SYSTEMCONFIG
+    set CONFIG_CODE = #{configCode,jdbcType=VARCHAR},
+      CONFIG_NAME = #{configName,jdbcType=VARCHAR},
+      CONFIG_VALUE_ID = #{configValueId,jdbcType=DECIMAL},
+      CONFIG_VALUE_NAME = #{configValueName,jdbcType=VARCHAR},
+      SYS_IS_START = #{sysIsStart,jdbcType=VARCHAR}
+    where SYS_ID = #{sysId,jdbcType=DECIMAL}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+    select SYS_ID, CONFIG_CODE, CONFIG_NAME, CONFIG_VALUE_ID, CONFIG_VALUE_NAME, SYS_IS_START
+    from PS_SYSTEMCONFIG
+    where SYS_ID = #{sysId,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SYS_ID, CONFIG_CODE, CONFIG_NAME, CONFIG_VALUE_ID, CONFIG_VALUE_NAME, SYS_IS_START
+    from PS_SYSTEMCONFIG
+  </select>
+  <!--一共有多少条数据-->
+  <select id="getTotalCount" resultType="int">
+    select count(*) from ps_systemconfig
+  </select>
+  <!--分页查询-->
+  <select id="selectByPage"  parameterType="java.util.Map" resultMap="BaseResultMap">
+    select * from (select row_number() over(order by sys_id) no, psp.* from ps_systemconfig psp
+    ) temp
+    <if test='endIndex != null and endIndex!=""'>
+      <![CDATA[where no <=#{endIndex}]]>
+    </if>
+
+    <if test='startIndex != null and startIndex!=""'>
+      and no>=#{startIndex}
+    </if>
+  </select>
+</mapper>

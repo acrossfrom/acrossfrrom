@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newer.acrossfrom.data.mapper.LogsMapper">
+  <resultMap id="BaseResultMap" type="com.newer.acrossfrom.data.bean.Logs">
+    <id column="LOGS_ID" jdbcType="DECIMAL" property="logsId" />
+    <result column="LOGS_USER_ID" jdbcType="DECIMAL" property="logsUserId" />
+    <result column="OPERATE_INFO" jdbcType="VARCHAR" property="operateInfo" />
+    <result column="OPERATE_DATETIME" jdbcType="TIMESTAMP" property="operateDatetime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from PS_LOGS
+    where LOGS_ID = #{logsId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.newer.acrossfrom.data.bean.Logs">
+    insert into PS_LOGS (LOGS_ID, LOGS_USER_ID, OPERATE_INFO, 
+      OPERATE_DATETIME)
+    values (#{logsId,jdbcType=DECIMAL}, #{logsUserId,jdbcType=DECIMAL}, #{operateInfo,jdbcType=VARCHAR}, 
+      #{operateDatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.newer.acrossfrom.data.bean.Logs">
+    update PS_LOGS
+    set LOGS_USER_ID = #{logsUserId,jdbcType=DECIMAL},
+      OPERATE_INFO = #{operateInfo,jdbcType=VARCHAR},
+      OPERATE_DATETIME = #{operateDatetime,jdbcType=TIMESTAMP}
+    where LOGS_ID = #{logsId,jdbcType=DECIMAL}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select LOGS_ID, LOGS_USER_ID, OPERATE_INFO, OPERATE_DATETIME
+    from PS_LOGS
+    where LOGS_ID = #{logsId,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select LOGS_ID, LOGS_USER_ID, OPERATE_INFO, OPERATE_DATETIME
+    from PS_LOGS
+  </select>
+</mapper>

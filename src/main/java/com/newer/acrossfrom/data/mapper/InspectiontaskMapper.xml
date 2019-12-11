@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newer.acrossfrom.data.mapper.InspectiontaskMapper">
+  <resultMap id="BaseResultMap" type="com.newer.acrossfrom.data.bean.Inspectiontask">
+    <id column="INSPECT_ID" jdbcType="DECIMAL" property="inspectId" />
+    <result column="INSPECT_TASK_ID" jdbcType="DECIMAL" property="inspectTaskId" />
+    <result column="INSPECT_POLE_ID" jdbcType="DECIMAL" property="inspectPoleId" />
+    <result column="INSPECT_LINE_ID" jdbcType="DECIMAL" property="inspectLineId" />
+    <result column="IS_BUG" jdbcType="CHAR" property="isBug" />
+    <result column="INTACT_RATE" jdbcType="VARCHAR" property="intactRate" />
+    <result column="BUG_LEVEL" jdbcType="DECIMAL" property="bugLevel" />
+    <result column="BUG_TYPE" jdbcType="DECIMAL" property="bugType" />
+    <result column="BUG_DESC" jdbcType="VARCHAR" property="bugDesc" />
+    <result column="DISCOVERER_ID" jdbcType="DECIMAL" property="discovererId" />
+    <result column="DISCOVER_TIME" jdbcType="TIMESTAMP" property="discoverTime" />
+    <result column="IS_SOLVE" jdbcType="CHAR" property="isSolve" />
+    <result column="IS_BUG_LEVEL" jdbcType="CHAR" property="isBugLevel" />
+    <result column="INSPECT_TIME" jdbcType="TIMESTAMP" property="inspectTime" />
+    <result column="INSPECT_CREATION_TIME" jdbcType="TIMESTAMP" property="inspectCreationTime" />
+    <result column="INSPECT_CREATED_BY" jdbcType="VARCHAR" property="inspectCreatedBy" />
+    <result column="INSPECT_LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="inspectLastUpdateTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from PS_INSPECTIONTASK_DETAIL
+    where INSPECT_ID = #{inspectId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.newer.acrossfrom.data.bean.Inspectiontask">
+    insert into PS_INSPECTIONTASK_DETAIL (INSPECT_ID, INSPECT_TASK_ID, INSPECT_POLE_ID, 
+      INSPECT_LINE_ID, IS_BUG, INTACT_RATE, 
+      BUG_LEVEL, BUG_TYPE, BUG_DESC, 
+      DISCOVERER_ID, DISCOVER_TIME, IS_SOLVE, 
+      IS_BUG_LEVEL, INSPECT_TIME, INSPECT_CREATION_TIME, 
+      INSPECT_CREATED_BY, INSPECT_LAST_UPDATE_TIME
+      )
+    values (#{inspectId,jdbcType=DECIMAL}, #{inspectTaskId,jdbcType=DECIMAL}, #{inspectPoleId,jdbcType=DECIMAL}, 
+      #{inspectLineId,jdbcType=DECIMAL}, #{isBug,jdbcType=CHAR}, #{intactRate,jdbcType=VARCHAR}, 
+      #{bugLevel,jdbcType=DECIMAL}, #{bugType,jdbcType=DECIMAL}, #{bugDesc,jdbcType=VARCHAR}, 
+      #{discovererId,jdbcType=DECIMAL}, #{discoverTime,jdbcType=TIMESTAMP}, #{isSolve,jdbcType=CHAR}, 
+      #{isBugLevel,jdbcType=CHAR}, #{inspectTime,jdbcType=TIMESTAMP}, #{inspectCreationTime,jdbcType=TIMESTAMP}, 
+      #{inspectCreatedBy,jdbcType=VARCHAR}, #{inspectLastUpdateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.newer.acrossfrom.data.bean.Inspectiontask">
+    update PS_INSPECTIONTASK_DETAIL
+    set INSPECT_TASK_ID = #{inspectTaskId,jdbcType=DECIMAL},
+      INSPECT_POLE_ID = #{inspectPoleId,jdbcType=DECIMAL},
+      INSPECT_LINE_ID = #{inspectLineId,jdbcType=DECIMAL},
+      IS_BUG = #{isBug,jdbcType=CHAR},
+      INTACT_RATE = #{intactRate,jdbcType=VARCHAR},
+      BUG_LEVEL = #{bugLevel,jdbcType=DECIMAL},
+      BUG_TYPE = #{bugType,jdbcType=DECIMAL},
+      BUG_DESC = #{bugDesc,jdbcType=VARCHAR},
+      DISCOVERER_ID = #{discovererId,jdbcType=DECIMAL},
+      DISCOVER_TIME = #{discoverTime,jdbcType=TIMESTAMP},
+      IS_SOLVE = #{isSolve,jdbcType=CHAR},
+      IS_BUG_LEVEL = #{isBugLevel,jdbcType=CHAR},
+      INSPECT_TIME = #{inspectTime,jdbcType=TIMESTAMP},
+      INSPECT_CREATION_TIME = #{inspectCreationTime,jdbcType=TIMESTAMP},
+      INSPECT_CREATED_BY = #{inspectCreatedBy,jdbcType=VARCHAR},
+      INSPECT_LAST_UPDATE_TIME = #{inspectLastUpdateTime,jdbcType=TIMESTAMP}
+    where INSPECT_ID = #{inspectId,jdbcType=DECIMAL}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select INSPECT_ID, INSPECT_TASK_ID, INSPECT_POLE_ID, INSPECT_LINE_ID, IS_BUG, INTACT_RATE, 
+    BUG_LEVEL, BUG_TYPE, BUG_DESC, DISCOVERER_ID, DISCOVER_TIME, IS_SOLVE, IS_BUG_LEVEL, 
+    INSPECT_TIME, INSPECT_CREATION_TIME, INSPECT_CREATED_BY, INSPECT_LAST_UPDATE_TIME
+    from PS_INSPECTIONTASK_DETAIL
+    where INSPECT_ID = #{inspectId,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select INSPECT_ID, INSPECT_TASK_ID, INSPECT_POLE_ID, INSPECT_LINE_ID, IS_BUG, INTACT_RATE, 
+    BUG_LEVEL, BUG_TYPE, BUG_DESC, DISCOVERER_ID, DISCOVER_TIME, IS_SOLVE, IS_BUG_LEVEL, 
+    INSPECT_TIME, INSPECT_CREATION_TIME, INSPECT_CREATED_BY, INSPECT_LAST_UPDATE_TIME
+    from PS_INSPECTIONTASK_DETAIL
+  </select>
+</mapper>

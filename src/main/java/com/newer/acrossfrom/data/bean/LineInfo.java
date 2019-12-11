@@ -1,54 +1,48 @@
 package com.newer.acrossfrom.data.bean;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class LineInfo {
-    private Integer lineId;
+    private BigDecimal lineId;
+
     private String lineCode;
+
     private String lineName;
-    private Integer lineLength;
-    private Integer backLength;
+
+    private BigDecimal lineLength;
+
+    private BigDecimal backLength;
+
     private Date productDate;
-    private Integer voltageLevel;
-    private Integer lineStartPole;
-    private Integer lineEndPole;
-    private Integer towerBaseNum;
+
+    private BigDecimal voltageLevel;
+
+    private BigDecimal lineStartPole;
+
+    private BigDecimal lineEndPole;
+
+    private BigDecimal towerBaseNum;
+
     private String maintenanceCompany;
-    private Integer runningSysId;
+
+    private BigDecimal runningSysId;
+
     private String common;
+
     private Date lineCreationTime;
-    private Integer lineCreatedId;
+
+    private BigDecimal lineCreatedId;
+
     private Date lineLastUpdateTime;
+
     private String lineIsStart;
 
-    public LineInfo() {
-    }
-
-    public LineInfo(Integer lineId, String lineCode, String lineName, Integer lineLength, Integer backLength, Date productDate, Integer voltageLevel, Integer lineStartPole, Integer lineEndPole, Integer towerBaseNum, String maintenanceCompany, Integer runningSysId, String common, Date lineCreationTime, Integer lineCreatedId, Date lineLastUpdateTime, String lineIsStart) {
-        this.lineId = lineId;
-        this.lineCode = lineCode;
-        this.lineName = lineName;
-        this.lineLength = lineLength;
-        this.backLength = backLength;
-        this.productDate = productDate;
-        this.voltageLevel = voltageLevel;
-        this.lineStartPole = lineStartPole;
-        this.lineEndPole = lineEndPole;
-        this.towerBaseNum = towerBaseNum;
-        this.maintenanceCompany = maintenanceCompany;
-        this.runningSysId = runningSysId;
-        this.common = common;
-        this.lineCreationTime = lineCreationTime;
-        this.lineCreatedId = lineCreatedId;
-        this.lineLastUpdateTime = lineLastUpdateTime;
-        this.lineIsStart = lineIsStart;
-    }
-
-    public Integer getLineId() {
+    public BigDecimal getLineId() {
         return lineId;
     }
 
-    public void setLineId(Integer lineId) {
+    public void setLineId(BigDecimal lineId) {
         this.lineId = lineId;
     }
 
@@ -57,7 +51,7 @@ public class LineInfo {
     }
 
     public void setLineCode(String lineCode) {
-        this.lineCode = lineCode;
+        this.lineCode = lineCode == null ? null : lineCode.trim();
     }
 
     public String getLineName() {
@@ -65,22 +59,22 @@ public class LineInfo {
     }
 
     public void setLineName(String lineName) {
-        this.lineName = lineName;
+        this.lineName = lineName == null ? null : lineName.trim();
     }
 
-    public Integer getLineLength() {
+    public BigDecimal getLineLength() {
         return lineLength;
     }
 
-    public void setLineLength(Integer lineLength) {
+    public void setLineLength(BigDecimal lineLength) {
         this.lineLength = lineLength;
     }
 
-    public Integer getBackLength() {
+    public BigDecimal getBackLength() {
         return backLength;
     }
 
-    public void setBackLength(Integer backLength) {
+    public void setBackLength(BigDecimal backLength) {
         this.backLength = backLength;
     }
 
@@ -92,35 +86,35 @@ public class LineInfo {
         this.productDate = productDate;
     }
 
-    public Integer getVoltageLevel() {
+    public BigDecimal getVoltageLevel() {
         return voltageLevel;
     }
 
-    public void setVoltageLevel(Integer voltageLevel) {
+    public void setVoltageLevel(BigDecimal voltageLevel) {
         this.voltageLevel = voltageLevel;
     }
 
-    public Integer getLineStartPole() {
+    public BigDecimal getLineStartPole() {
         return lineStartPole;
     }
 
-    public void setLineStartPole(Integer lineStartPole) {
+    public void setLineStartPole(BigDecimal lineStartPole) {
         this.lineStartPole = lineStartPole;
     }
 
-    public Integer getLineEndPole() {
+    public BigDecimal getLineEndPole() {
         return lineEndPole;
     }
 
-    public void setLineEndPole(Integer lineEndPole) {
+    public void setLineEndPole(BigDecimal lineEndPole) {
         this.lineEndPole = lineEndPole;
     }
 
-    public Integer getTowerBaseNum() {
+    public BigDecimal getTowerBaseNum() {
         return towerBaseNum;
     }
 
-    public void setTowerBaseNum(Integer towerBaseNum) {
+    public void setTowerBaseNum(BigDecimal towerBaseNum) {
         this.towerBaseNum = towerBaseNum;
     }
 
@@ -129,14 +123,14 @@ public class LineInfo {
     }
 
     public void setMaintenanceCompany(String maintenanceCompany) {
-        this.maintenanceCompany = maintenanceCompany;
+        this.maintenanceCompany = maintenanceCompany == null ? null : maintenanceCompany.trim();
     }
 
-    public Integer getRunningSysId() {
+    public BigDecimal getRunningSysId() {
         return runningSysId;
     }
 
-    public void setRunningSysId(Integer runningSysId) {
+    public void setRunningSysId(BigDecimal runningSysId) {
         this.runningSysId = runningSysId;
     }
 
@@ -145,7 +139,7 @@ public class LineInfo {
     }
 
     public void setCommon(String common) {
-        this.common = common;
+        this.common = common == null ? null : common.trim();
     }
 
     public Date getLineCreationTime() {
@@ -156,11 +150,11 @@ public class LineInfo {
         this.lineCreationTime = lineCreationTime;
     }
 
-    public Integer getLineCreatedId() {
+    public BigDecimal getLineCreatedId() {
         return lineCreatedId;
     }
 
-    public void setLineCreatedId(Integer lineCreatedId) {
+    public void setLineCreatedId(BigDecimal lineCreatedId) {
         this.lineCreatedId = lineCreatedId;
     }
 
@@ -177,29 +171,6 @@ public class LineInfo {
     }
 
     public void setLineIsStart(String lineIsStart) {
-        this.lineIsStart = lineIsStart;
-    }
-
-    @Override
-    public String toString() {
-        return "LineInfo{" +
-                "lineId=" + lineId +
-                ", lineCode='" + lineCode + '\'' +
-                ", lineName='" + lineName + '\'' +
-                ", lineLength=" + lineLength +
-                ", backLength=" + backLength +
-                ", productDate=" + productDate +
-                ", voltageLevel=" + voltageLevel +
-                ", lineStartPole=" + lineStartPole +
-                ", lineEndPole=" + lineEndPole +
-                ", towerBaseNum=" + towerBaseNum +
-                ", maintenanceCompany='" + maintenanceCompany + '\'' +
-                ", runningSysId=" + runningSysId +
-                ", common='" + common + '\'' +
-                ", lineCreationTime=" + lineCreationTime +
-                ", lineCreatedId=" + lineCreatedId +
-                ", lineLastUpdateTime=" + lineLastUpdateTime +
-                ", lineIsStart='" + lineIsStart + '\'' +
-                '}';
+        this.lineIsStart = lineIsStart == null ? null : lineIsStart.trim();
     }
 }

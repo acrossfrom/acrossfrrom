@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newer.acrossfrom.data.mapper.LineInfoMapper">
+  <resultMap id="BaseResultMap" type="com.newer.acrossfrom.data.bean.LineInfo">
+    <id column="LINE_ID" jdbcType="DECIMAL" property="lineId" />
+    <result column="LINE_CODE" jdbcType="VARCHAR" property="lineCode" />
+    <result column="LINE_NAME" jdbcType="VARCHAR" property="lineName" />
+    <result column="LINE_LENGTH" jdbcType="DECIMAL" property="lineLength" />
+    <result column="BACK_LENGTH" jdbcType="DECIMAL" property="backLength" />
+    <result column="PRODUCT_DATE" jdbcType="TIMESTAMP" property="productDate" />
+    <result column="VOLTAGE_LEVEL" jdbcType="DECIMAL" property="voltageLevel" />
+    <result column="LINE_START_POLE" jdbcType="DECIMAL" property="lineStartPole" />
+    <result column="LINE_END_POLE" jdbcType="DECIMAL" property="lineEndPole" />
+    <result column="TOWER_BASE_NUM" jdbcType="DECIMAL" property="towerBaseNum" />
+    <result column="MAINTENANCE_COMPANY" jdbcType="VARCHAR" property="maintenanceCompany" />
+    <result column="RUNNING_SYS_ID" jdbcType="DECIMAL" property="runningSysId" />
+    <result column="COMMON" jdbcType="VARCHAR" property="common" />
+    <result column="LINE_CREATION_TIME" jdbcType="TIMESTAMP" property="lineCreationTime" />
+    <result column="LINE_CREATED_ID" jdbcType="DECIMAL" property="lineCreatedId" />
+    <result column="LINE_LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="lineLastUpdateTime" />
+    <result column="LINE_IS_START" jdbcType="VARCHAR" property="lineIsStart" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from PS_LINE_INFO
+    where LINE_ID = #{lineId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.newer.acrossfrom.data.bean.LineInfo">
+    insert into PS_LINE_INFO (LINE_ID, LINE_CODE, LINE_NAME, 
+      LINE_LENGTH, BACK_LENGTH, PRODUCT_DATE, 
+      VOLTAGE_LEVEL, LINE_START_POLE, LINE_END_POLE, 
+      TOWER_BASE_NUM, MAINTENANCE_COMPANY, RUNNING_SYS_ID, 
+      COMMON, LINE_CREATION_TIME, LINE_CREATED_ID, 
+      LINE_LAST_UPDATE_TIME, LINE_IS_START)
+    values (#{lineId,jdbcType=DECIMAL}, #{lineCode,jdbcType=VARCHAR}, #{lineName,jdbcType=VARCHAR}, 
+      #{lineLength,jdbcType=DECIMAL}, #{backLength,jdbcType=DECIMAL}, #{productDate,jdbcType=TIMESTAMP}, 
+      #{voltageLevel,jdbcType=DECIMAL}, #{lineStartPole,jdbcType=DECIMAL}, #{lineEndPole,jdbcType=DECIMAL}, 
+      #{towerBaseNum,jdbcType=DECIMAL}, #{maintenanceCompany,jdbcType=VARCHAR}, #{runningSysId,jdbcType=DECIMAL}, 
+      #{common,jdbcType=VARCHAR}, #{lineCreationTime,jdbcType=TIMESTAMP}, #{lineCreatedId,jdbcType=DECIMAL}, 
+      #{lineLastUpdateTime,jdbcType=TIMESTAMP}, #{lineIsStart,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.newer.acrossfrom.data.bean.LineInfo">
+    update PS_LINE_INFO
+    set LINE_CODE = #{lineCode,jdbcType=VARCHAR},
+      LINE_NAME = #{lineName,jdbcType=VARCHAR},
+      LINE_LENGTH = #{lineLength,jdbcType=DECIMAL},
+      BACK_LENGTH = #{backLength,jdbcType=DECIMAL},
+      PRODUCT_DATE = #{productDate,jdbcType=TIMESTAMP},
+      VOLTAGE_LEVEL = #{voltageLevel,jdbcType=DECIMAL},
+      LINE_START_POLE = #{lineStartPole,jdbcType=DECIMAL},
+      LINE_END_POLE = #{lineEndPole,jdbcType=DECIMAL},
+      TOWER_BASE_NUM = #{towerBaseNum,jdbcType=DECIMAL},
+      MAINTENANCE_COMPANY = #{maintenanceCompany,jdbcType=VARCHAR},
+      RUNNING_SYS_ID = #{runningSysId,jdbcType=DECIMAL},
+      COMMON = #{common,jdbcType=VARCHAR},
+      LINE_CREATION_TIME = #{lineCreationTime,jdbcType=TIMESTAMP},
+      LINE_CREATED_ID = #{lineCreatedId,jdbcType=DECIMAL},
+      LINE_LAST_UPDATE_TIME = #{lineLastUpdateTime,jdbcType=TIMESTAMP},
+      LINE_IS_START = #{lineIsStart,jdbcType=VARCHAR}
+    where LINE_ID = #{lineId,jdbcType=DECIMAL}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select LINE_ID, LINE_CODE, LINE_NAME, LINE_LENGTH, BACK_LENGTH, PRODUCT_DATE, VOLTAGE_LEVEL, 
+    LINE_START_POLE, LINE_END_POLE, TOWER_BASE_NUM, MAINTENANCE_COMPANY, RUNNING_SYS_ID, 
+    COMMON, LINE_CREATION_TIME, LINE_CREATED_ID, LINE_LAST_UPDATE_TIME, LINE_IS_START
+    from PS_LINE_INFO
+    where LINE_ID = #{lineId,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select LINE_ID, LINE_CODE, LINE_NAME, LINE_LENGTH, BACK_LENGTH, PRODUCT_DATE, VOLTAGE_LEVEL, 
+    LINE_START_POLE, LINE_END_POLE, TOWER_BASE_NUM, MAINTENANCE_COMPANY, RUNNING_SYS_ID, 
+    COMMON, LINE_CREATION_TIME, LINE_CREATED_ID, LINE_LAST_UPDATE_TIME, LINE_IS_START
+    from PS_LINE_INFO
+  </select>
+</mapper>

@@ -34,27 +34,6 @@ public class Consumer {
 
     private String userStatus;
 
-    public Consumer() {
-    }
-
-    public Consumer(Integer userId, String userCode, String userName, String userPassword, String sex, BigDecimal age, Date entryDate, Date dimissionDate, String phoneTel, String email, Date userCreationTime, Date lastLoginTime, String userCreatedBy, Date userLastUpdateTime, String userStatus) {
-        this.userId = userId;
-        this.userCode = userCode;
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.sex = sex;
-        this.age = age;
-        this.entryDate = entryDate;
-        this.dimissionDate = dimissionDate;
-        this.phoneTel = phoneTel;
-        this.email = email;
-        this.userCreationTime = userCreationTime;
-        this.lastLoginTime = lastLoginTime;
-        this.userCreatedBy = userCreatedBy;
-        this.userLastUpdateTime = userLastUpdateTime;
-        this.userStatus = userStatus;
-    }
-
     public Integer getUserId() {
         return userId;
     }

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newer.acrossfrom.data.mapper.InspectorMapper">
+  <resultMap id="BaseResultMap" type="com.newer.acrossfrom.data.bean.Inspector">
+    <id column="INSPECTOR_ID" jdbcType="DECIMAL" property="inspectorId" />
+    <result column="INSPECTOR_TASK_ID" jdbcType="DECIMAL" property="inspectorTaskId" />
+    <result column="INSPECTOR_CODE" jdbcType="DECIMAL" property="inspectorCode" />
+    <result column="INSPECTOR_NAME" jdbcType="VARCHAR" property="inspectorName" />
+    <result column="INSPECTOR_CREATION_TIME" jdbcType="TIMESTAMP" property="inspectorCreationTime" />
+    <result column="INSPECTOR_CREATED_BY" jdbcType="VARCHAR" property="inspectorCreatedBy" />
+    <result column="INSPECTOR_LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="inspectorLastUpdateTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from PS_INSPECTOR_DETAIL
+    where INSPECTOR_ID = #{inspectorId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.newer.acrossfrom.data.bean.Inspector">
+    insert into PS_INSPECTOR_DETAIL (INSPECTOR_ID, INSPECTOR_TASK_ID, INSPECTOR_CODE, 
+      INSPECTOR_NAME, INSPECTOR_CREATION_TIME, 
+      INSPECTOR_CREATED_BY, INSPECTOR_LAST_UPDATE_TIME
+      )
+    values (#{inspectorId,jdbcType=DECIMAL}, #{inspectorTaskId,jdbcType=DECIMAL}, #{inspectorCode,jdbcType=DECIMAL}, 
+      #{inspectorName,jdbcType=VARCHAR}, #{inspectorCreationTime,jdbcType=TIMESTAMP}, 
+      #{inspectorCreatedBy,jdbcType=VARCHAR}, #{inspectorLastUpdateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.newer.acrossfrom.data.bean.Inspector">
+    update PS_INSPECTOR_DETAIL
+    set INSPECTOR_TASK_ID = #{inspectorTaskId,jdbcType=DECIMAL},
+      INSPECTOR_CODE = #{inspectorCode,jdbcType=DECIMAL},
+      INSPECTOR_NAME = #{inspectorName,jdbcType=VARCHAR},
+      INSPECTOR_CREATION_TIME = #{inspectorCreationTime,jdbcType=TIMESTAMP},
+      INSPECTOR_CREATED_BY = #{inspectorCreatedBy,jdbcType=VARCHAR},
+      INSPECTOR_LAST_UPDATE_TIME = #{inspectorLastUpdateTime,jdbcType=TIMESTAMP}
+    where INSPECTOR_ID = #{inspectorId,jdbcType=DECIMAL}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select INSPECTOR_ID, INSPECTOR_TASK_ID, INSPECTOR_CODE, INSPECTOR_NAME, INSPECTOR_CREATION_TIME, 
+    INSPECTOR_CREATED_BY, INSPECTOR_LAST_UPDATE_TIME
+    from PS_INSPECTOR_DETAIL
+    where INSPECTOR_ID = #{inspectorId,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select INSPECTOR_ID, INSPECTOR_TASK_ID, INSPECTOR_CODE, INSPECTOR_NAME, INSPECTOR_CREATION_TIME, 
+    INSPECTOR_CREATED_BY, INSPECTOR_LAST_UPDATE_TIME
+    from PS_INSPECTOR_DETAIL
+  </select>
+</mapper>

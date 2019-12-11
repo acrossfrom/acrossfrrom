@@ -2,16 +2,15 @@ package com.newer.acrossfrom.view.control;
 
 import com.newer.acrossfrom.data.bean.Consumer;
 import com.newer.acrossfrom.service.service.ConsumerService;
-import net.sf.json.JSONObject;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -22,15 +21,13 @@ public class ConsumerController {
     @Autowired
     ConsumerService consumerService;
 
-    @RequestMapping(value = "login.do", method = RequestMethod.POST)
+   @RequestMapping(value = "login.do",method = RequestMethod.POST)
     @ResponseBody
-    public Consumer login(@RequestBody String jsonClass) throws UnsupportedEncodingException {
+    public Consumer login(Consumer consumer) {
         System.out.println("进入登陆方法");
-        String json = URLDecoder.decode(jsonClass, "utf-8");
-        String newJson = json.substring(0, json.lastIndexOf("="));
-        JSONObject jsonObject = JSONObject.fromObject(newJson);
+        System.out.println(consumer.toString());
 //		1.将用户输入的账号密码 封装在token中
-        UsernamePasswordToken token = new UsernamePasswordToken(jsonObject.getString("userCode"), jsonObject.getString("userPassword"));
+        UsernamePasswordToken token = new UsernamePasswordToken(consumer.getUserCode(),consumer.getUserPassword());
 //        2.获取Subject
         Subject subject = SecurityUtils.getSubject();
 //        3.通过Subject 的login方法 完成登录

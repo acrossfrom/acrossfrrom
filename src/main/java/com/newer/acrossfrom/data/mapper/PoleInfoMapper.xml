@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newer.acrossfrom.data.mapper.PoleInfoMapper">
+  <resultMap id="BaseResultMap" type="com.newer.acrossfrom.data.bean.PoleInfo">
+    <id column="POLE_ID" jdbcType="DECIMAL" property="poleId" />
+    <result column="POLE_CODE" jdbcType="VARCHAR" property="poleCode" />
+    <result column="POLE_CREATION_TIME" jdbcType="TIMESTAMP" property="poleCreationTime" />
+    <result column="POLE_CREATED_BY" jdbcType="VARCHAR" property="poleCreatedBy" />
+    <result column="POLE_LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="poleLastUpdateTime" />
+    <result column="POLE_IS_START" jdbcType="VARCHAR" property="poleIsStart" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from PS_POLE_INFO
+    where POLE_ID = #{poleId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.newer.acrossfrom.data.bean.PoleInfo">
+    insert into PS_POLE_INFO (POLE_ID, POLE_CODE, POLE_CREATION_TIME, 
+      POLE_CREATED_BY, POLE_LAST_UPDATE_TIME, POLE_IS_START
+      )
+    values (#{poleId,jdbcType=DECIMAL}, #{poleCode,jdbcType=VARCHAR}, #{poleCreationTime,jdbcType=TIMESTAMP}, 
+      #{poleCreatedBy,jdbcType=VARCHAR}, #{poleLastUpdateTime,jdbcType=TIMESTAMP}, #{poleIsStart,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.newer.acrossfrom.data.bean.PoleInfo">
+    update PS_POLE_INFO
+    set POLE_CODE = #{poleCode,jdbcType=VARCHAR},
+      POLE_CREATION_TIME = #{poleCreationTime,jdbcType=TIMESTAMP},
+      POLE_CREATED_BY = #{poleCreatedBy,jdbcType=VARCHAR},
+      POLE_LAST_UPDATE_TIME = #{poleLastUpdateTime,jdbcType=TIMESTAMP},
+      POLE_IS_START = #{poleIsStart,jdbcType=VARCHAR}
+    where POLE_ID = #{poleId,jdbcType=DECIMAL}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select POLE_ID, POLE_CODE, POLE_CREATION_TIME, POLE_CREATED_BY, POLE_LAST_UPDATE_TIME, 
+    POLE_IS_START
+    from PS_POLE_INFO
+    where POLE_ID = #{poleId,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select POLE_ID, POLE_CODE, POLE_CREATION_TIME, POLE_CREATED_BY, POLE_LAST_UPDATE_TIME, 
+    POLE_IS_START
+    from PS_POLE_INFO
+  </select>
+</mapper>

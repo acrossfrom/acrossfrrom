@@ -59,6 +59,7 @@ public class ShiroConfig {
     public DefaultSecurityManager getDefaultSecurityManager(MyRealm myRealm){
 //        单独对密码认证
 //       myRealm.setCredentialsMatcher(passwordMatcher);
+
         DefaultSecurityManager defaultSecurityManager = new DefaultWebSecurityManager();
 //        需要赋值一个Realm
         defaultSecurityManager.setRealm(myRealm);

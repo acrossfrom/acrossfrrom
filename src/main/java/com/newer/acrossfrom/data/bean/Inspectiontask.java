@@ -1,239 +1,176 @@
 package com.newer.acrossfrom.data.bean;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class Inspectiontask {
-    private Integer inspectionId;
-    private String taskCode;
-    private String inspectionTaskName;
-    private Integer inspectionLineId;
-    private Integer inspectionStartPole;
-    private Integer inspectionEndPole;
-    private Integer issuedById;
-    private Date issuedTime;
-    private Integer taskStatus;
-    private Date finishTime;
-    private String isCancel;
-    private String common;
-    private Date inspectionCreationTime;
-    private String inspectionCreatedBy;
-    private Date inspectionLastUpdateTime;
+    private BigDecimal inspectId;
 
-    private LineInfo lineInfo;
-    private PoleInfo poleInfo;
-    private PoleInfo endPoleInfo;
-    private Consumer consumer;
-    private Systemconfig systemconfig;
+    private BigDecimal inspectTaskId;
 
-    public Inspectiontask() {
+    private BigDecimal inspectPoleId;
+
+    private BigDecimal inspectLineId;
+
+    private String isBug;
+
+    private String intactRate;
+
+    private BigDecimal bugLevel;
+
+    private BigDecimal bugType;
+
+    private String bugDesc;
+
+    private BigDecimal discovererId;
+
+    private Date discoverTime;
+
+    private String isSolve;
+
+    private String isBugLevel;
+
+    private Date inspectTime;
+
+    private Date inspectCreationTime;
+
+    private String inspectCreatedBy;
+
+    private Date inspectLastUpdateTime;
+
+    public BigDecimal getInspectId() {
+        return inspectId;
     }
 
-    public Inspectiontask(Integer inspectionId, String taskCode, String inspectionTaskName, Integer inspectionLineId, Integer inspectionStartPole, Integer inspectionEndPole, Integer issuedById, Date issuedTime, Integer taskStatus, Date finishTime, String isCancel, String common, Date inspectionCreationTime, String inspectionCreatedBy, Date inspectionLastUpdateTime, LineInfo lineInfo, PoleInfo poleInfo, PoleInfo endPoleInfo, Consumer consumer, Systemconfig systemconfig) {
-        this.inspectionId = inspectionId;
-        this.taskCode = taskCode;
-        this.inspectionTaskName = inspectionTaskName;
-        this.inspectionLineId = inspectionLineId;
-        this.inspectionStartPole = inspectionStartPole;
-        this.inspectionEndPole = inspectionEndPole;
-        this.issuedById = issuedById;
-        this.issuedTime = issuedTime;
-        this.taskStatus = taskStatus;
-        this.finishTime = finishTime;
-        this.isCancel = isCancel;
-        this.common = common;
-        this.inspectionCreationTime = inspectionCreationTime;
-        this.inspectionCreatedBy = inspectionCreatedBy;
-        this.inspectionLastUpdateTime = inspectionLastUpdateTime;
-        this.lineInfo = lineInfo;
-        this.poleInfo = poleInfo;
-        this.endPoleInfo = endPoleInfo;
-        this.consumer = consumer;
-        this.systemconfig = systemconfig;
+    public void setInspectId(BigDecimal inspectId) {
+        this.inspectId = inspectId;
     }
 
-    public Integer getInspectionId() {
-        return inspectionId;
+    public BigDecimal getInspectTaskId() {
+        return inspectTaskId;
     }
 
-    public void setInspectionId(Integer inspectionId) {
-        this.inspectionId = inspectionId;
+    public void setInspectTaskId(BigDecimal inspectTaskId) {
+        this.inspectTaskId = inspectTaskId;
     }
 
-    public String getTaskCode() {
-        return taskCode;
+    public BigDecimal getInspectPoleId() {
+        return inspectPoleId;
     }
 
-    public void setTaskCode(String taskCode) {
-        this.taskCode = taskCode;
+    public void setInspectPoleId(BigDecimal inspectPoleId) {
+        this.inspectPoleId = inspectPoleId;
     }
 
-    public String getInspectionTaskName() {
-        return inspectionTaskName;
+    public BigDecimal getInspectLineId() {
+        return inspectLineId;
     }
 
-    public void setInspectionTaskName(String inspectionTaskName) {
-        this.inspectionTaskName = inspectionTaskName;
+    public void setInspectLineId(BigDecimal inspectLineId) {
+        this.inspectLineId = inspectLineId;
     }
 
-    public Integer getInspectionLineId() {
-        return inspectionLineId;
+    public String getIsBug() {
+        return isBug;
     }
 
-    public void setInspectionLineId(Integer inspectionLineId) {
-        this.inspectionLineId = inspectionLineId;
+    public void setIsBug(String isBug) {
+        this.isBug = isBug == null ? null : isBug.trim();
     }
 
-    public Integer getInspectionStartPole() {
-        return inspectionStartPole;
+    public String getIntactRate() {
+        return intactRate;
     }
 
-    public void setInspectionStartPole(Integer inspectionStartPole) {
-        this.inspectionStartPole = inspectionStartPole;
+    public void setIntactRate(String intactRate) {
+        this.intactRate = intactRate == null ? null : intactRate.trim();
     }
 
-    public Integer getInspectionEndPole() {
-        return inspectionEndPole;
+    public BigDecimal getBugLevel() {
+        return bugLevel;
     }
 
-    public void setInspectionEndPole(Integer inspectionEndPole) {
-        this.inspectionEndPole = inspectionEndPole;
+    public void setBugLevel(BigDecimal bugLevel) {
+        this.bugLevel = bugLevel;
     }
 
-    public Integer getIssuedById() {
-        return issuedById;
+    public BigDecimal getBugType() {
+        return bugType;
     }
 
-    public void setIssuedById(Integer issuedById) {
-        this.issuedById = issuedById;
+    public void setBugType(BigDecimal bugType) {
+        this.bugType = bugType;
     }
 
-    public Date getIssuedTime() {
-        return issuedTime;
+    public String getBugDesc() {
+        return bugDesc;
     }
 
-    public void setIssuedTime(Date issuedTime) {
-        this.issuedTime = issuedTime;
+    public void setBugDesc(String bugDesc) {
+        this.bugDesc = bugDesc == null ? null : bugDesc.trim();
     }
 
-    public Integer getTaskStatus() {
-        return taskStatus;
+    public BigDecimal getDiscovererId() {
+        return discovererId;
     }
 
-    public void setTaskStatus(Integer taskStatus) {
-        this.taskStatus = taskStatus;
+    public void setDiscovererId(BigDecimal discovererId) {
+        this.discovererId = discovererId;
     }
 
-    public Date getFinishTime() {
-        return finishTime;
+    public Date getDiscoverTime() {
+        return discoverTime;
     }
 
-    public void setFinishTime(Date finishTime) {
-        this.finishTime = finishTime;
+    public void setDiscoverTime(Date discoverTime) {
+        this.discoverTime = discoverTime;
     }
 
-    public String getIsCancel() {
-        return isCancel;
+    public String getIsSolve() {
+        return isSolve;
     }
 
-    public void setIsCancel(String isCancel) {
-        this.isCancel = isCancel;
+    public void setIsSolve(String isSolve) {
+        this.isSolve = isSolve == null ? null : isSolve.trim();
     }
 
-    public String getCommon() {
-        return common;
+    public String getIsBugLevel() {
+        return isBugLevel;
     }
 
-    public void setCommon(String common) {
-        this.common = common;
+    public void setIsBugLevel(String isBugLevel) {
+        this.isBugLevel = isBugLevel == null ? null : isBugLevel.trim();
     }
 
-    public Date getInspectionCreationTime() {
-        return inspectionCreationTime;
+    public Date getInspectTime() {
+        return inspectTime;
     }
 
-    public void setInspectionCreationTime(Date inspectionCreationTime) {
-        this.inspectionCreationTime = inspectionCreationTime;
+    public void setInspectTime(Date inspectTime) {
+        this.inspectTime = inspectTime;
     }
 
-    public String getInspectionCreatedBy() {
-        return inspectionCreatedBy;
+    public Date getInspectCreationTime() {
+        return inspectCreationTime;
     }
 
-    public void setInspectionCreatedBy(String inspectionCreatedBy) {
-        this.inspectionCreatedBy = inspectionCreatedBy;
+    public void setInspectCreationTime(Date inspectCreationTime) {
+        this.inspectCreationTime = inspectCreationTime;
     }
 
-    public Date getInspectionLastUpdateTime() {
-        return inspectionLastUpdateTime;
+    public String getInspectCreatedBy() {
+        return inspectCreatedBy;
     }
 
-    public void setInspectionLastUpdateTime(Date inspectionLastUpdateTime) {
-        this.inspectionLastUpdateTime = inspectionLastUpdateTime;
+    public void setInspectCreatedBy(String inspectCreatedBy) {
+        this.inspectCreatedBy = inspectCreatedBy == null ? null : inspectCreatedBy.trim();
     }
 
-    public LineInfo getLineInfo() {
-        return lineInfo;
+    public Date getInspectLastUpdateTime() {
+        return inspectLastUpdateTime;
     }
 
-    public void setLineInfo(LineInfo lineInfo) {
-        this.lineInfo = lineInfo;
-    }
-
-    public PoleInfo getPoleInfo() {
-        return poleInfo;
-    }
-
-    public void setPoleInfo(PoleInfo poleInfo) {
-        this.poleInfo = poleInfo;
-    }
-
-    public PoleInfo getEndPoleInfo() {
-        return endPoleInfo;
-    }
-
-    public void setEndPoleInfo(PoleInfo endPoleInfo) {
-        this.endPoleInfo = endPoleInfo;
-    }
-
-    public Consumer getConsumer() {
-        return consumer;
-    }
-
-    public void setConsumer(Consumer consumer) {
-        this.consumer = consumer;
-    }
-
-    public Systemconfig getSystemconfig() {
-        return systemconfig;
-    }
-
-    public void setSystemconfig(Systemconfig systemconfig) {
-        this.systemconfig = systemconfig;
-    }
-
-    @Override
-    public String toString() {
-        return "Inspectiontask{" +
-                "inspectionId=" + inspectionId +
-                ", taskCode='" + taskCode + '\'' +
-                ", inspectionTaskName='" + inspectionTaskName + '\'' +
-                ", inspectionLineId=" + inspectionLineId +
-                ", inspectionStartPole=" + inspectionStartPole +
-                ", inspectionEndPole=" + inspectionEndPole +
-                ", issuedById=" + issuedById +
-                ", issuedTime=" + issuedTime +
-                ", taskStatus=" + taskStatus +
-                ", finishTime=" + finishTime +
-                ", isCancel='" + isCancel + '\'' +
-                ", common='" + common + '\'' +
-                ", inspectionCreationTime=" + inspectionCreationTime +
-                ", inspectionCreatedBy='" + inspectionCreatedBy + '\'' +
-                ", inspectionLastUpdateTime=" + inspectionLastUpdateTime +
-                ", lineInfo=" + lineInfo.toString() +
-                ", poleInfo=" + poleInfo.toString() +
-                ", poleInfo=" + endPoleInfo.toString() +
-                ", consumer=" + consumer.toString() +
-                ", systemconfig=" + systemconfig.toString() +
-                '}';
+    public void setInspectLastUpdateTime(Date inspectLastUpdateTime) {
+        this.inspectLastUpdateTime = inspectLastUpdateTime;
     }
 }

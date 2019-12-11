@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newer.acrossfrom.data.mapper.PremissionMapper">
+  <resultMap id="BaseResultMap" type="com.newer.acrossfrom.data.bean.Premission">
+    <id column="RP_ID" jdbcType="DECIMAL" property="rpId" />
+    <result column="RP_ROLE_ID" jdbcType="DECIMAL" property="rpRoleId" />
+    <result column="RP_FUNCTION_ID" jdbcType="DECIMAL" property="rpFunctionId" />
+    <result column="RP_CREATION_TIME" jdbcType="TIMESTAMP" property="rpCreationTime" />
+    <result column="RP_CREATED_BY" jdbcType="DECIMAL" property="rpCreatedBy" />
+    <result column="RP_LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="rpLastUpdateTime" />
+    <result column="RP_IS_START" jdbcType="VARCHAR" property="rpIsStart" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from PS_ROLE_PREMISSION
+    where RP_ID = #{rpId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.newer.acrossfrom.data.bean.Premission">
+    insert into PS_ROLE_PREMISSION (RP_ID, RP_ROLE_ID, RP_FUNCTION_ID, 
+      RP_CREATION_TIME, RP_CREATED_BY, RP_LAST_UPDATE_TIME, 
+      RP_IS_START)
+    values (#{rpId,jdbcType=DECIMAL}, #{rpRoleId,jdbcType=DECIMAL}, #{rpFunctionId,jdbcType=DECIMAL}, 
+      #{rpCreationTime,jdbcType=TIMESTAMP}, #{rpCreatedBy,jdbcType=DECIMAL}, #{rpLastUpdateTime,jdbcType=TIMESTAMP}, 
+      #{rpIsStart,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.newer.acrossfrom.data.bean.Premission">
+    update PS_ROLE_PREMISSION
+    set RP_ROLE_ID = #{rpRoleId,jdbcType=DECIMAL},
+      RP_FUNCTION_ID = #{rpFunctionId,jdbcType=DECIMAL},
+      RP_CREATION_TIME = #{rpCreationTime,jdbcType=TIMESTAMP},
+      RP_CREATED_BY = #{rpCreatedBy,jdbcType=DECIMAL},
+      RP_LAST_UPDATE_TIME = #{rpLastUpdateTime,jdbcType=TIMESTAMP},
+      RP_IS_START = #{rpIsStart,jdbcType=VARCHAR}
+    where RP_ID = #{rpId,jdbcType=DECIMAL}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select RP_ID, RP_ROLE_ID, RP_FUNCTION_ID, RP_CREATION_TIME, RP_CREATED_BY, RP_LAST_UPDATE_TIME, 
+    RP_IS_START
+    from PS_ROLE_PREMISSION
+    where RP_ID = #{rpId,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select RP_ID, RP_ROLE_ID, RP_FUNCTION_ID, RP_CREATION_TIME, RP_CREATED_BY, RP_LAST_UPDATE_TIME, 
+    RP_IS_START
+    from PS_ROLE_PREMISSION
+  </select>
+</mapper>

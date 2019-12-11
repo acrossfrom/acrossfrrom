@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newer.acrossfrom.data.mapper.SolvetaskMapper">
+  <resultMap id="BaseResultMap" type="com.newer.acrossfrom.data.bean.Solvetask">
+    <id column="ST_ID" jdbcType="DECIMAL" property="stId" />
+    <result column="ST_TASK_ID" jdbcType="DECIMAL" property="stTaskId" />
+    <result column="INSPECTION_TASK_DEL_ID" jdbcType="DECIMAL" property="inspectionTaskDelId" />
+    <result column="ST_CREATION_TIME" jdbcType="TIMESTAMP" property="stCreationTime" />
+    <result column="ST_CREATED_BY" jdbcType="VARCHAR" property="stCreatedBy" />
+    <result column="ST_LASTUPDATE_TIME" jdbcType="TIMESTAMP" property="stLastupdateTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from PS_SOLVETASK_DETAIL
+    where ST_ID = #{stId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.newer.acrossfrom.data.bean.Solvetask">
+    insert into PS_SOLVETASK_DETAIL (ST_ID, ST_TASK_ID, INSPECTION_TASK_DEL_ID, 
+      ST_CREATION_TIME, ST_CREATED_BY, ST_LASTUPDATE_TIME
+      )
+    values (#{stId,jdbcType=DECIMAL}, #{stTaskId,jdbcType=DECIMAL}, #{inspectionTaskDelId,jdbcType=DECIMAL}, 
+      #{stCreationTime,jdbcType=TIMESTAMP}, #{stCreatedBy,jdbcType=VARCHAR}, #{stLastupdateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.newer.acrossfrom.data.bean.Solvetask">
+    update PS_SOLVETASK_DETAIL
+    set ST_TASK_ID = #{stTaskId,jdbcType=DECIMAL},
+      INSPECTION_TASK_DEL_ID = #{inspectionTaskDelId,jdbcType=DECIMAL},
+      ST_CREATION_TIME = #{stCreationTime,jdbcType=TIMESTAMP},
+      ST_CREATED_BY = #{stCreatedBy,jdbcType=VARCHAR},
+      ST_LASTUPDATE_TIME = #{stLastupdateTime,jdbcType=TIMESTAMP}
+    where ST_ID = #{stId,jdbcType=DECIMAL}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select ST_ID, ST_TASK_ID, INSPECTION_TASK_DEL_ID, ST_CREATION_TIME, ST_CREATED_BY, 
+    ST_LASTUPDATE_TIME
+    from PS_SOLVETASK_DETAIL
+    where ST_ID = #{stId,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ST_ID, ST_TASK_ID, INSPECTION_TASK_DEL_ID, ST_CREATION_TIME, ST_CREATED_BY, 
+    ST_LASTUPDATE_TIME
+    from PS_SOLVETASK_DETAIL
+  </select>
+</mapper>

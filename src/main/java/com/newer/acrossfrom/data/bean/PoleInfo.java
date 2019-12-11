@@ -1,33 +1,27 @@
 package com.newer.acrossfrom.data.bean;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class PoleInfo {
-    private Integer poleid;
+    private BigDecimal poleId;
+
     private String poleCode;
+
     private Date poleCreationTime;
+
     private String poleCreatedBy;
+
     private Date poleLastUpdateTime;
+
     private String poleIsStart;
 
-    public PoleInfo() {
+    public BigDecimal getPoleId() {
+        return poleId;
     }
 
-    public PoleInfo(Integer poleid, String poleCode, Date poleCreationTime, String poleCreatedBy, Date poleLastUpdateTime, String poleIsStart) {
-        this.poleid = poleid;
-        this.poleCode = poleCode;
-        this.poleCreationTime = poleCreationTime;
-        this.poleCreatedBy = poleCreatedBy;
-        this.poleLastUpdateTime = poleLastUpdateTime;
-        this.poleIsStart = poleIsStart;
-    }
-
-    public Integer getPoleid() {
-        return poleid;
-    }
-
-    public void setPoleid(Integer poleid) {
-        this.poleid = poleid;
+    public void setPoleId(BigDecimal poleId) {
+        this.poleId = poleId;
     }
 
     public String getPoleCode() {
@@ -35,7 +29,7 @@ public class PoleInfo {
     }
 
     public void setPoleCode(String poleCode) {
-        this.poleCode = poleCode;
+        this.poleCode = poleCode == null ? null : poleCode.trim();
     }
 
     public Date getPoleCreationTime() {
@@ -51,7 +45,7 @@ public class PoleInfo {
     }
 
     public void setPoleCreatedBy(String poleCreatedBy) {
-        this.poleCreatedBy = poleCreatedBy;
+        this.poleCreatedBy = poleCreatedBy == null ? null : poleCreatedBy.trim();
     }
 
     public Date getPoleLastUpdateTime() {
@@ -67,18 +61,6 @@ public class PoleInfo {
     }
 
     public void setPoleIsStart(String poleIsStart) {
-        this.poleIsStart = poleIsStart;
-    }
-
-    @Override
-    public String toString() {
-        return "PoleInfo{" +
-                "poleid=" + poleid +
-                ", poleCode='" + poleCode + '\'' +
-                ", poleCreationTime=" + poleCreationTime +
-                ", poleCreatedBy='" + poleCreatedBy + '\'' +
-                ", poleLastUpdateTime=" + poleLastUpdateTime +
-                ", poleIsStart='" + poleIsStart + '\'' +
-                '}';
+        this.poleIsStart = poleIsStart == null ? null : poleIsStart.trim();
     }
 }

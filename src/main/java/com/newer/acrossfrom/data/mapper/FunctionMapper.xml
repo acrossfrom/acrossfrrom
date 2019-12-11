@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newer.acrossfrom.data.mapper.FunctionMapper">
+  <resultMap id="BaseResultMap" type="com.newer.acrossfrom.data.bean.Function">
+    <id column="FUNCTION_ID" jdbcType="DECIMAL" property="functionId" />
+    <result column="FUNCTION_CODE" jdbcType="VARCHAR" property="functionCode" />
+    <result column="FUNCTION_NAME" jdbcType="VARCHAR" property="functionName" />
+    <result column="FUNCTION_CREATION_TIME" jdbcType="TIMESTAMP" property="functionCreationTime" />
+    <result column="FUNCTION_CREATED_BY" jdbcType="DECIMAL" property="functionCreatedBy" />
+    <result column="FUNCTION_LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="functionLastUpdateTime" />
+    <result column="FUNCURL" jdbcType="VARCHAR" property="funcurl" />
+    <result column="PARENT_ID" jdbcType="DECIMAL" property="parentId" />
+    <result column="FUNCTION_IS_START" jdbcType="VARCHAR" property="functionIsStart" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from PS_FUNCTION
+    where FUNCTION_ID = #{functionId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.newer.acrossfrom.data.bean.Function">
+    insert into PS_FUNCTION (FUNCTION_ID, FUNCTION_CODE, FUNCTION_NAME, 
+      FUNCTION_CREATION_TIME, FUNCTION_CREATED_BY, 
+      FUNCTION_LAST_UPDATE_TIME, FUNCURL, PARENT_ID, 
+      FUNCTION_IS_START)
+    values (#{functionId,jdbcType=DECIMAL}, #{functionCode,jdbcType=VARCHAR}, #{functionName,jdbcType=VARCHAR}, 
+      #{functionCreationTime,jdbcType=TIMESTAMP}, #{functionCreatedBy,jdbcType=DECIMAL}, 
+      #{functionLastUpdateTime,jdbcType=TIMESTAMP}, #{funcurl,jdbcType=VARCHAR}, #{parentId,jdbcType=DECIMAL}, 
+      #{functionIsStart,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.newer.acrossfrom.data.bean.Function">
+    update PS_FUNCTION
+    set FUNCTION_CODE = #{functionCode,jdbcType=VARCHAR},
+      FUNCTION_NAME = #{functionName,jdbcType=VARCHAR},
+      FUNCTION_CREATION_TIME = #{functionCreationTime,jdbcType=TIMESTAMP},
+      FUNCTION_CREATED_BY = #{functionCreatedBy,jdbcType=DECIMAL},
+      FUNCTION_LAST_UPDATE_TIME = #{functionLastUpdateTime,jdbcType=TIMESTAMP},
+      FUNCURL = #{funcurl,jdbcType=VARCHAR},
+      PARENT_ID = #{parentId,jdbcType=DECIMAL},
+      FUNCTION_IS_START = #{functionIsStart,jdbcType=VARCHAR}
+    where FUNCTION_ID = #{functionId,jdbcType=DECIMAL}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select FUNCTION_ID, FUNCTION_CODE, FUNCTION_NAME, FUNCTION_CREATION_TIME, FUNCTION_CREATED_BY, 
+    FUNCTION_LAST_UPDATE_TIME, FUNCURL, PARENT_ID, FUNCTION_IS_START
+    from PS_FUNCTION
+    where FUNCTION_ID = #{functionId,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select FUNCTION_ID, FUNCTION_CODE, FUNCTION_NAME, FUNCTION_CREATION_TIME, FUNCTION_CREATED_BY, 
+    FUNCTION_LAST_UPDATE_TIME, FUNCURL, PARENT_ID, FUNCTION_IS_START
+    from PS_FUNCTION
+  </select>
+</mapper>
